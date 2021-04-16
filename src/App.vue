@@ -21,10 +21,21 @@
 
 <script>
 import TitleBar from './partial/Titlebar'
+import { invoke } from '@Tauri/tauri'
 export default {
   name: 'App',
   components: {
     TitleBar
+  },
+  created () {
+    invoke('my_custom_command', {
+      message: 'Hi',
+      number: 42
+    })
+      .then((res) =>
+        console.log(`Message: ${res.message}, Other Val: ${res.other_val}`)
+      )
+      .catch((e) => console.error(e))
   }
 }
 </script>
