@@ -21,7 +21,7 @@
 
 <script>
 import TitleBar from './partial/Titlebar'
-import { invoke } from '@Tauri/tauri'
+import { invoke } from '@tauri-apps/api/tauri'
 export default {
   name: 'App',
   components: {

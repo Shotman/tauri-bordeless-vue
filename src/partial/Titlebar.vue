@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { appWindow } from '@Tauri/window'
+import { appWindow } from '@tauri-apps/api/window'
 
 export default {
   data () {
