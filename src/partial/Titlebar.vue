@@ -1,5 +1,5 @@
 <template>
-<div @dblclick="toggleMaximize" data-tauri-drag-region class="titlebar">
+<div @dblclick="toggleMaximize" data-tauri-drag-region class="titlebar" id="titlebar">
   <div @click="minimize" class="titlebar-button" id="titlebar-minimize">
     <img
       src="https://api.iconify.design/mdi:window-minimize.svg"
@@ -26,19 +26,18 @@
 
 <script>
 import { appWindow } from '@tauri-apps/api/window'
-
 export default {
   data () {
     return {
-      maximized: null
+      maximized: appWindow.isMaximized().then(result => result)
     }
   },
   created () {
-    this.maximized = appWindow.isMaximized()
+    console.log(this.maximized)
     window.addEventListener('resize', this.resizeEventHandler)
   },
   destroyed () {
-    window.removeEventListener('resize')
+    window.removeEventListener('resize', this.resizeEventHandler)
   },
   methods: {
     minimize () {
