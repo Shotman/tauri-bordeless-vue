@@ -29,7 +29,7 @@ import { appWindow } from '@tauri-apps/api/window'
 export default {
   data () {
     return {
-      maximized: appWindow.isMaximized().then(result => result)
+      maximized: false
     }
   },
   created () {

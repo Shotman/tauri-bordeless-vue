@@ -5,6 +5,7 @@
         <p>top</p>
       </header>
       <main>
+        <TestNotification></TestNotification>
         <section>1st</section>
         <section>2nd</section>
         <section>3rd<br>
@@ -21,11 +22,13 @@
 
 <script>
 import TitleBar from './partial/Titlebar'
+import TestNotification from './components/Notification'
 import { invoke } from '@tauri-apps/api/tauri'
 export default {
   name: 'App',
   components: {
-    TitleBar
+    TitleBar,
+    TestNotification
   },
   created () {
     invoke('my_custom_command', {
